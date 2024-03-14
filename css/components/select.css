@@ -1,0 +1,66 @@
+.hb-select-group {
+    position: relative;
+    display: block;
+    width: calc(100% - 16px);
+    background: var(--amt-input-bg);
+    border-radius: 12px;
+    height: 50px;
+    padding-top: 10px;
+    margin: 8px 8px 16px;
+    overflow: hidden
+}
+
+.hb-select-group > select {
+    position: absolute;
+    top: 0;
+    font-family: var(--amt-font-family);
+    font-size: 14px;
+    background: 0 0;
+    width: 100%;
+    height: 100%;
+    color: var(--amt-text-color);
+    outline: 0;
+    border: 0;
+    padding: 16px 16px 0;
+    cursor: var(--amt-pointer);
+    -webkit-appearance: none;
+    -moz-appearance: none
+}
+
+.hb-select-group > select > option {
+    color: #414141;
+}
+
+.hb-select-group > span {
+    position: absolute;
+    font-size: 13px;
+    color: var(--amt-primary);
+    top: 5px
+}
+
+body:not(.light) .hb-select-group > span {
+    color: rgba(var(--amt-text-color-rgb), .7)
+}
+
+.hb-select-group > ._icon_ {
+    position: absolute;
+    font-size: 18px;
+    color: rgba(var(--amt-text-color-rgb), .8);
+    top: 18px
+}
+.hb-select-group > svg._icon_ {
+    width: 20px;
+    fill: currentColor;
+}
+
+body.rtl .hb-select-group > span {
+    right: 16px
+}
+
+body.ltr .hb-select-group > span,
+body.rtl .hb-select-group > ._icon_ {
+    left: 16px
+}
+body.ltr .hb-select-group > ._icon_ {
+    right: 16px
+}

@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="../css/themes.min.css">
+    <link rel="stylesheet" href="../css/structure.min.css">
+    <link rel="stylesheet" href="../css/style.min.css">
+    <link rel="stylesheet" href="../css/components.min.css">
+
+    <script src="../js/jquery.js"></script>
+
+    <title>Tabs</title>
+</head>
+<body class="ltr light">
+
+<div class="h-50"></div>
+
+<div class="row">
+    <div class="col-lg-6 margin-auto">
+        <a href=".." class="btn btn-text --low flex-center">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon icon-tabler">
+                <path d="M5 12l-2 0l9 -9l9 9l-2 0"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7"/><path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6"/>
+            </svg>
+            Back
+        </a>
+        <a href="./tabs_rtl.html" class="btn btn-text --low">فارسی</a>
+        <button type="button" class="btn btn-text --low no-dark switch-dark">Dark mode</button>
+        <button type="button" class="btn btn-text --low no-light switch-light">Light mode</button>
+
+        <div class="h-20"></div>
+
+        <hr style="border-color:rgba(0,0,0,.1)">
+
+        <div class="h-10"></div>
+
+        <h2>Simple tabs with content</h2>
+
+        <div class="hb-tab-group">
+            <div class="hb-tabs --full" data-tab-items="demo_1">
+                <a href="#" class="item active" data-tab="item_1">Item 1</a>
+                <a href="#" class="item" data-tab="item_2">Item 2</a>
+                <a href="#" class="item" data-tab="item_3">Item 3</a>
+            </div>
+
+            <div data-tab-contents="demo_1">
+                <div class="pa-16" data-tab-content="item_1">
+                    <p>Item content 1</p>
+                </div>
+
+                <div class="pa-16" data-tab-content="item_2">
+                    <p>Item content 2</p>
+                </div>
+
+                <div class="pa-16" data-tab-content="item_3">
+                    <p>Item content 3</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="h-20"></div>
+
+        <hr style="border-color:rgba(0,0,0,.1)">
+
+        <div class="h-10"></div>
+
+        <h2>Multiple tabs with same instance</h2>
+
+        <div class="hb-tab-group">
+            <div class="hb-tabs --full" data-tab-items="demo_2">
+                <a href="#" class="item active" data-tab="item_1">Item 1</a>
+                <a href="#" class="item" data-tab="item_2">Item 2</a>
+            </div>
+
+            <div data-tab-contents="demo_2">
+                <div class="pa-16" data-tab-content="item_1">
+                    <p>Item content 1</p>
+                </div>
+
+                <div class="pa-16" data-tab-content="item_2">
+                    <p>Item content 2</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="h-20"></div>
+
+        <div class="hb-tab-group">
+            <div class="hb-tabs --full" data-tab-items="demo_2">
+                <a href="#" class="item" data-tab="item_3">Item 3</a>
+                <a href="#" class="item" data-tab="item_4">Item 4</a>
+            </div>
+
+            <div data-tab-contents="demo_2">
+                <div class="pa-16" data-tab-content="item_3">
+                    <p>Item content 3</p>
+                </div>
+
+                <div class="pa-16" data-tab-content="item_4">
+                    <p>Item content 4</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="h-20"></div>
+
+        <hr style="border-color:rgba(0,0,0,.1)">
+
+        <div class="h-10"></div>
+
+        <h2>External elements as tab button</h2>
+
+        <div class="hb-tab-group">
+            <div class="hb-tabs --full" data-tab-items="demo_3">
+                <a href="#" class="item active" data-tab="item_1">Item 1</a>
+                <a href="#" class="item" data-tab="item_2">Item 2</a>
+            </div>
+
+            <div data-tab-contents="demo_3">
+                <div class="pa-16" data-tab-content="item_1">
+                    <p>Item content 1</p>
+                </div>
+
+                <div class="pa-16" data-tab-content="item_2">
+                    <p>Item content 2</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="h-20"></div>
+
+        <div data-tab-items="demo_3">
+            <button type="button" class="btn" data-tab="item_1">Item 1</button>
+            <button type="button" class="btn" data-tab="item_2">Item 2</button>
+        </div>
+
+    </div>
+</div>
+
+<div class="h-50"></div>
+
+<script>
+    $(document).on("click", "[data-tab]", function(){
+        const $e = $(this), item = $e.attr("data-tab"), tab = $e.parent().attr("data-tab-items");
+        if(tab && item){
+            const $contents = $(`[data-tab-contents="${tab}"]`);
+            $contents.find("[data-tab-content]").fadeOut(0);
+            $contents.find(`[data-tab-content="${item}"]`).fadeIn(0);
+            $(`[data-tab-items="${tab}"] .item`).removeClass("active");
+            $(`[data-tab-items="${tab}"] [data-tab="${item}"]`).addClass("active");
+        }
+    });
+    $("[data-tab].active").click();
+</script>
+
+<script src="../js/script.js"></script>
+
+</body>
+</html>

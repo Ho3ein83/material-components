@@ -1,0 +1,142 @@
+.hb-checkbox {
+    --hb-checkbox-tint: var(--amt-primary-rgb);
+    z-index: 0;
+    direction: rtl;
+    position: relative;
+    display: inline-block;
+    color: rgba(var(--amt-text-color-rgb), .87);
+    font-family: var(--amt-font-family);
+    font-size: 16px;
+    line-height: 1.5
+}
+
+.hb-checkbox.--red { --hb-checkbox-tint: var(--amt-color-red-rgb) }
+.hb-checkbox.--green { --hb-checkbox-tint: var(--amt-color-green-rgb) }
+.hb-checkbox.--blue { --hb-checkbox-tint: var(--amt-color-blue-rgb) }
+.hb-checkbox.--orange { --hb-checkbox-tint: var(--amt-color-orange-rgb) }
+
+.hb-checkbox > input {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    z-index: 1;
+    position: absolute;
+    display: block;
+    box-sizing: border-box;
+    margin: 3px 1px;
+    border: solid 2px;
+    border-color: rgba(var(--amt-text-color-rgb), .6);
+    border-radius: 2px;
+    width: 18px;
+    height: 18px;
+    outline: 0;
+    cursor: pointer;
+    transition: border-color .2s, background-color .2s
+}
+
+.hb-checkbox > input + span {
+    display: inline-block;
+    box-sizing: border-box;
+    padding-left: 30px;
+    width: inherit;
+    cursor: pointer
+}
+
+.hb-checkbox > input + span::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: -8px;
+    display: block;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    background-color: var(--amt-text-color);
+    opacity: 0;
+    transform: scale(1);
+    pointer-events: none;
+    transition: opacity .3s, transform .2s
+}
+
+.hb-checkbox > input + span::after {
+    content: "";
+    z-index: 1;
+    display: block;
+    position: absolute;
+    top: 3px;
+    left: 11px;
+    box-sizing: content-box;
+    width: 10px;
+    height: 5px;
+    border: solid 2px transparent;
+    border-right-width: 0;
+    border-top-width: 0;
+    pointer-events: none;
+    transform: translate(3px, 4px) rotate(-45deg);
+    transition: border-color .2s
+}
+
+.hb-checkbox > input:checked, .hb-checkbox > input:indeterminate {
+    border-color: rgb(var(--hb-checkbox-tint));
+    background-color: rgb(var(--hb-checkbox-tint));
+}
+
+.hb-checkbox > input:checked + span::before, .hb-checkbox > input:indeterminate + span::before {
+    background-color: rgb(var(--hb-checkbox-tint))
+}
+
+.hb-checkbox > input:checked + span::after, .hb-checkbox > input:indeterminate + span::after {
+    border-color: var(--amt-color-white)
+}
+
+.hb-checkbox > input:indeterminate + span::after {
+    border-left-width: 0;
+    transform: translate(4px, 3px)
+}
+
+.hb-checkbox:hover > input + span::before {
+    opacity: .04
+}
+
+.hb-checkbox > input:focus + span::before {
+    opacity: .12
+}
+
+.hb-checkbox:hover > input:focus + span::before {
+    opacity: .16
+}
+
+.hb-checkbox:active:hover > input, .hb-checkbox:active > input {
+    border-color: rgb(var(--hb-checkbox-tint))
+}
+
+.hb-checkbox:active > input:checked {
+    border-color: transparent;
+    background-color: rgba(var(--amt-color-black-rgb), .6)
+}
+
+.hb-checkbox:active > input + span::before {
+    opacity: 1;
+    transform: scale(0);
+    transition: transform 0s, opacity 0s
+}
+
+.hb-checkbox > input:disabled {
+    border-color: rgba(var(--amt-color-black-rgb), .38);
+    cursor: initial
+}
+
+.hb-checkbox > input:checked:disabled, .hb-checkbox > input:indeterminate:disabled {
+    border-color: transparent;
+    background-color: rgba(var(--amt-color-black-rgb), .38)
+}
+
+.hb-checkbox > input:disabled + span {
+    color: rgba(var(--amt-color-black-rgb), .38);
+    cursor: initial
+}
+
+.hb-checkbox > input:disabled + span::before {
+    opacity: 0;
+    transform: scale(0)
+}

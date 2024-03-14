@@ -1,0 +1,133 @@
+.btn-text {
+    position: relative;
+    display: inline-block;
+    box-sizing: border-box;
+    margin: 0;
+    border: 0;
+    border-radius: var(--amt-btn-radius);
+    padding: var(--amt-btn-padding);
+    min-width: 64px;
+    height: var(--amt-btn-height);
+    vertical-align: middle;
+    text-align: center;
+    text-overflow: ellipsis;
+    color: var(--amt-primary);
+    background-color: transparent;
+    font-family: var(--amt-font-family);
+    font-size: var(--amt-btn-font-size);
+    font-weight: 500;
+    line-height: var(--amt-btn-line-height);
+    outline: 0;
+    cursor: pointer;
+    text-decoration: none
+}
+
+.btn-text.--red.--low {
+    background-color: rgba(var(--amt-color-red-rgb), .1) !important;
+}
+.btn-text.--green.--low {
+    background-color: rgba(var(--amt-color-green-rgb), .1) !important;
+}
+.btn-text.--blue.--low {
+    background-color: rgba(var(--amt-color-blue-rgb), .1) !important;
+}
+.btn-text.--orange.--low {
+    background-color: rgba(var(--amt-color-orange-rgb), .1) !important;
+}
+
+.btn-text.--red {
+    color: var(--amt-color-red) !important;
+}
+.btn-text.--green {
+    color: var(--amt-color-green) !important;
+}
+.btn-text.--blue {
+    color: var(--amt-color-blue) !important;
+}
+.btn-text.--orange {
+    color: var(--amt-color-orange) !important;
+}
+
+body.dark .btn-text {
+    color: var(--amt-text-color)
+}
+
+.btn-text::-moz-focus-inner {
+    border: 0
+}
+
+.btn-text::after, .btn-text::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: inherit;
+    opacity: 0
+}
+
+.btn-text::before {
+    background-color: rgb(var(--amt-primary-rgb));
+    transition: opacity .2s
+}
+
+.btn-text.--red::before {
+    background-color: rgb(var(--amt-color-red-rgb));
+}
+.btn-text.--green::before {
+    background-color: rgb(var(--amt-color-green-rgb));
+}
+.btn-text.--blue::before {
+    background-color: rgb(var(--amt-color-blue-rgb));
+}
+.btn-text.--orange::before {
+    background-color: rgb(var(--amt-color-orange-rgb));
+}
+
+.btn-text::after {
+    background: radial-gradient(circle at center, currentColor 1%, transparent 1%) center/10000% 10000% no-repeat;
+    transition: opacity 1s, background-size .5s
+}
+
+.btn-text:hover::before {
+    opacity: .04
+}
+
+.btn-text:focus::before {
+    opacity: .12
+}
+
+.btn-text:hover:focus::before {
+    opacity: .16
+}
+
+.btn-text:active::after {
+    opacity: .16;
+    background-size: 100% 100%;
+    transition: background-size 0s
+}
+
+.btn-text:disabled {
+    color: rgba(var(--amt-color-black-rgb), .38);
+    background-color: transparent;
+    cursor: initial
+}
+
+.btn-text:disabled::after, .btn-text:disabled::before {
+    opacity: 0
+}
+
+.btn-text.--low {
+    background-color: rgba(var(--amt-primary-rgb), .2);
+}
+
+.btn.--square {
+    min-width: 36px;
+    width: var(--amt-btn-height);
+    height: var(--amt-btn-height);
+    display: flex;
+    aspect-ratio: 1;
+    align-items: center;
+    justify-content: center;
+}
