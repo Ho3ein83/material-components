@@ -1,5 +1,7 @@
 # Material design collection for web
 
+[See demo](https://raw.githack.com/Ho3ein83/material-components/main/index.html)
+
 Design your web pages with material-based components!
 
 - All components are designed and developed in accordance with Google's Material Design principles, ensuring consistency and familiarity across your applications.
@@ -53,7 +55,7 @@ How to use?
 ```html
 <link rel="stylesheet" href="./css/components/component-file.css">
 ```
-For instance if you need button and progress bar components, link them separately:
+For example if you need button and progress bar components, link them separately:
 ```html
 <link rel="stylesheet" href="./css/components/button-unelevated.min.css">
 <link rel="stylesheet" href="./css/components/button-text.min.css">
@@ -66,7 +68,7 @@ For instance if you need button and progress bar components, link them separatel
 ```html
 <button class="btn">Click here</button>
 ```
-**See demo for more examples**
+**See [demo](https://raw.githack.com/Ho3ein83/material-components/main/index.html) for more examples**
 
 Components
 -------
